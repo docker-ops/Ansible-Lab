@@ -1,0 +1,15 @@
+---
+
+- name: Playbook2
+  hosts: all
+  become: yes
+  become_user: root
+  vars:
+      pack1: wget
+  tasks:
+  - name: Install Package {{pack1}}
+    yum: 
+     name: "{{pack1}}" 
+     state: latest     
+    when: ansible_distribution== "Amazon"
+

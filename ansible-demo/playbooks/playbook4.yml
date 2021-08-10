@@ -1,0 +1,13 @@
+---
+
+- hosts: all
+  tasks:
+   - name: copy{{item}}
+     copy:
+       src: /root/Ansible-Lab/ansible-demo/files/{{item}}
+       dest: /tmp/{{item}} 
+     with_items:
+      - abc1.txt
+      - abc2.txt
+      - abc3.txt       
+
