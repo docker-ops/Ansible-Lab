@@ -1,0 +1,14 @@
+---
+
+- name: Playbook1
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+   - name: Copy the files
+     copy:
+      src: /root/Ansible-Lab/ansible-demo/index.html
+      dest: /tmp/index.html
+   - name: Message Display
+     debug:
+      msg: Files are Copied!      
