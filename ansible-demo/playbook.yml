@@ -1,0 +1,27 @@
+---
+
+- name: Playbook
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+  - name: Update the Packages
+    package:
+      name: yum
+      state: latest
+  - name: Install the httpd server
+    package:
+      name: httpd
+      state: latest
+  - name: Start the services
+    service:
+      name: httpd
+      state: started
+  - name: Install Tomcat server
+    package:
+      name: tomcat
+      state: latest
+  - name: Start the Tomcat server
+    service:
+      name: tomcat
+      state: started     
